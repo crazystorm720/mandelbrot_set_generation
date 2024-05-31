@@ -2,8 +2,9 @@ name: mandelbrot
 channels:
   - defaults
 dependencies:
-  - python=3.11
+  - python=3.10
+  - numpy
+  - matplotlib
   - pip
-  - psutil
   - pip:
-    - -r file:requirements.txt
+    - -r requirements.txt
