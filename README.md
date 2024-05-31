@@ -5,22 +5,25 @@ This project demonstrates the generation of the Mandelbrot set using both non-ve
 ## Project Structure
 
 ```
-mandelbrot/
+MyProject/
+├── .gitignore
+├── my_project_env/
 ├── environment.yml
-├── main.py
-├── generate_analysis.py
-├── mandelbrot_non_vectorized.py
-├── mandelbrot_vectorized.py
-├── __pycache__
-└── results/
+├── requirements.txt
+├── src/
+│   ├── generate_analysis.py
+│   ├── main.py
+│   ├── mandelbrot_non_vectorized.py
+│   ├── mandelbrot_vectorized.py
+└── tests/
 ```
 
 ## Setup and Installation
 
 1. **Clone the repository:**
     ```sh
-    git clone https://github.com/yourusername/mandelbrot.git
-    cd mandelbrot
+    git clone https://github.com/yourusername/MyProject.git
+    cd MyProject
     ```
 
 2. **Create and activate the conda environment:**
@@ -29,28 +32,33 @@ mandelbrot/
     conda activate mandelbrot
     ```
 
+3. **Install the Python dependencies using pip:**
+    ```sh
+    pip install -r requirements.txt
+    ```
+
 ## Usage
 
 1. **Run the main script to generate the Mandelbrot sets and the analysis report:**
     ```sh
-    python main.py
+    python src/main.py
     ```
 
 ## Scripts Overview
 
-### mandelbrot_non_vectorized.py
+### src/mandelbrot_non_vectorized.py
 
 This script contains the function `mandelbrot_non_vectorized` which generates the Mandelbrot set using a nested loop approach to iterate over each pixel. The execution time is measured and the resulting image is saved as `mandelbrot_non_vectorized.png`.
 
-### mandelbrot_vectorized.py
+### src/mandelbrot_vectorized.py
 
 This script contains the function `mandelbrot_vectorized` which leverages numpy's vectorized operations to perform computations on entire arrays at once. The execution time is measured and the resulting image is saved as `mandelbrot_vectorized.png`.
 
-### generate_analysis.py
+### src/generate_analysis.py
 
 This script generates a Markdown report (`analysis.md`) that documents the execution times and provides a detailed comparison between the non-vectorized and vectorized methods. It includes mathematical explanations and visual outputs of the Mandelbrot sets.
 
-### main.py
+### src/main.py
 
 The main script orchestrates the execution of both the non-vectorized and vectorized scripts, captures the execution times, and calls the `generate_analysis.py` script to create the analysis report.
 
@@ -70,4 +78,29 @@ results/
     ├── analysis.md
     ├── mandelbrot_non_vectorized.png
     └── mandelbrot_vectorized.png
+```
+
+This setup ensures that each run's results are well-organized and easily traceable.
+
+---
+
+### environment.yml
+
+```yaml
+name: mandelbrot
+channels:
+  - defaults
+dependencies:
+  - python=3.11
+  - pip
+  - pip:
+    - -r requirements.txt
+```
+
+### requirements.txt
+
+```txt
+numpy
+matplotlib
+psutil
 ```
