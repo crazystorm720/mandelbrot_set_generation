@@ -22,8 +22,8 @@ MyProject/
 
 1. **Clone the repository:**
     ```sh
-    git clone https://github.com/yourusername/MyProject.git
-    cd MyProject
+    git clone git@github.com:crazystorm720/mandelbrot_set_generation.git
+    cd mandelbrot_set_generation
     ```
 
 2. **Create and activate the conda environment:**
