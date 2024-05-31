@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 import time
+import os
 
 # Function to generate the Mandelbrot set (non-vectorized)
 def mandelbrot_non_vectorized(width, height, Re_min, Re_max, Im_min, Im_max, max_iterations):
@@ -20,11 +21,12 @@ def mandelbrot_non_vectorized(width, height, Re_min, Re_max, Im_min, Im_max, max
             image[y, x] = n
     return image
 
-def run_and_save_non_vectorized(width, height, Re_min, Re_max, Im_min, Im_max, max_iterations):
+def run_and_save_non_vectorized(width, height, Re_min, Re_max, Im_min, Im_max, max_iterations, results_dir):
     start_time = time.time()
     image = mandelbrot_non_vectorized(width, height, Re_min, Re_max, Im_min, Im_max, max_iterations)
     execution_time = (time.time() - start_time) * 1000  # in milliseconds
     plt.imshow(image, extent=(Re_min, Re_max, Im_min, Im_max), cmap='hot')
     plt.colorbar()
-    plt.savefig('results/mandelbrot_non_vectorized.png')
+    plt.savefig(os.path.join(results_dir, 'mandelbrot_non_vectorized.png'))
     return execution_time
+

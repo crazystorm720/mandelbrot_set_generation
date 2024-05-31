@@ -1,3 +1,24 @@
+# Mandelbrot Set Generation
+
+This project demonstrates the generation of the Mandelbrot set using both non-vectorized and vectorized approaches. It provides a comprehensive comparison of the performance and execution times of these two methods. The generated images and execution metrics are documented in a Markdown report.
+
+## Project Structure
+
+```
+mandelbrot/
+├── environment.yml
+├── main.py
+├── mandelbrot_non_vectorized.py
+├── mandelbrot_vectorized.py
+├── __pycache__
+│   ├── mandelbrot_non_vectorized.cpython-311.pyc
+│   └── mandelbrot_vectorized.cpython-311.pyc
+└── results/
+    ├── {system_name_date}
+    │   ├── analysis.md
+    │   ├── mandelbrot_non_vectorized.png
+    │   └── mandelbrot_vectorized.png
+```
 
 ## Setup and Installation
 
@@ -20,7 +41,9 @@
 
 ## Usage
 
-The main script orchestrates the execution of both the non-vectorized and vectorized scripts. It captures the execution times, generates the Mandelbrot set images, and compiles a Markdown report (`analysis.md`) containing the results and performance comparison.
+The main script orchestrates the execution of both the non-vector
+
+ized and vectorized scripts. It captures the execution times, generates the Mandelbrot set images, and compiles a Markdown report (`analysis.md`) containing the results and performance comparison.
 
 ## Scripts Overview
 
@@ -38,8 +61,8 @@ The main script orchestrates the execution of both the non-vectorized and vector
 
 ## Results
 
-The results directory will contain the following files after running the main script:
+The results directory will contain a subdirectory named `{system_name_date}` after running the main script. This subdirectory will include:
 
 - `mandelbrot_non_vectorized.png`: Image of the Mandelbrot set generated using the non-vectorized method.
 - `mandelbrot_vectorized.png`: Image of the Mandelbrot set generated using the vectorized method.
-- `analysis.md`: Markdown report detailing the execution times and comparing the two methods.
+- `analysis.md`: Markdown report detailing the execution times and providing a comparison of the two methods.
