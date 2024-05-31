@@ -25,8 +25,16 @@ def run_and_save_vectorized(width, height, Re_min, Re_max, Im_min, Im_max, max_i
     start_time = time.time()
     image = mandelbrot_vectorized(width, height, Re_min, Re_max, Im_min, Im_max, max_iterations)
     execution_time = (time.time() - start_time) * 1000  # in milliseconds
-    plt.imshow(image, extent=(Re_min, Re_max, Im_min, Im_max), cmap='hot')
-    plt.colorbar()
+    
+    # Plot and save the Mandelbrot set
+    plt.figure(figsize=(10, 10), dpi=300)
+    plt.imshow(image, extent=(Re_min, Re_max, Im_min, Im_max), cmap='inferno')
+    plt.colorbar(label='Iterations')
+    plt.title('Mandelbrot Set (Vectorized)')
+    plt.xlabel('Re')
+    plt.ylabel('Im')
     plt.savefig(os.path.join(results_dir, 'mandelbrot_vectorized.png'))
+    plt.close()
+
     return execution_time
 

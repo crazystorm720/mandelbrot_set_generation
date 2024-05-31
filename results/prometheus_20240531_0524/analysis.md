@@ -5,12 +5,12 @@ This project demonstrates the generation of the Mandelbrot set using both non-ve
 
 ## Non-Vectorized Method
 ![Non-Vectorized Mandelbrot](mandelbrot_non_vectorized.png)
-**Execution time**: 16222.95 ms
+**Execution time**: 15509.45 ms
 The non-vectorized method iterates over each pixel individually, which can be slow for large images. In this method, each pixel corresponds to a complex number, and the algorithm iteratively applies the function \(f_c(z) = z^2 + c\) until the magnitude of \(z\) exceeds 2 or the maximum number of iterations is reached. This process is computationally intensive as it does not leverage vectorized operations.
 
 ## Vectorized Method
 ![Vectorized Mandelbrot](mandelbrot_vectorized.png)
-**Execution time**: 4677.16 ms
+**Execution time**: 4674.16 ms
 The vectorized method leverages numpy's array operations to perform computations on entire arrays at once, significantly speeding up the process. In this approach, the same iterative function \(f_c(z) = z^2 + c\) is applied, but numpy arrays are used to handle multiple points simultaneously, thus optimizing the computation. This method is much faster for large images as it takes advantage of low-level optimizations in numpy.
 
 ## Analysis
