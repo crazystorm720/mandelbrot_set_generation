@@ -19,12 +19,11 @@ Re_min, Re_max = -2.0, 1.0
 Im_min, Im_max = -1.5, 1.5
 max_iterations = 1000
 
-# Run non-vectorized method and capture execution time
-non_vectorized_time = run_and_save_non_vectorized(width, height, Re_min, Re_max, Im_min, Im_max, max_iterations, results_dir)
+# Run non-vectorized method and capture metrics
+non_vectorized_time, non_vectorized_memory, non_vectorized_cpu, non_vectorized_iterations = run_and_save_non_vectorized(width, height, Re_min, Re_max, Im_min, Im_max, max_iterations, results_dir)
 
-# Run vectorized method and capture execution time
-vectorized_time = run_and_save_vectorized(width, height, Re_min, Re_max, Im_min, Im_max, max_iterations, results_dir)
+# Run vectorized method and capture metrics
+vectorized_time, vectorized_memory, vectorized_cpu, vectorized_iterations = run_and_save_vectorized(width, height, Re_min, Re_max, Im_min, Im_max, max_iterations, results_dir)
 
 # Generate analysis report
-subprocess.run(['python', 'generate_analysis.py', str(non_vectorized_time), str(vectorized_time), results_dir])
-
+subprocess.run(['python', 'src/generate_analysis.py', str(non_vectorized_time), str(vectorized_time), str(non_vectorized_memory), str(vectorized_memory), str(non_vectorized_cpu), str(vectorized_cpu), results_dir])
