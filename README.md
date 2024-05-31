@@ -8,16 +8,11 @@ This project demonstrates the generation of the Mandelbrot set using both non-ve
 mandelbrot/
 ├── environment.yml
 ├── main.py
+├── generate_analysis.py
 ├── mandelbrot_non_vectorized.py
 ├── mandelbrot_vectorized.py
 ├── __pycache__
-│   ├── mandelbrot_non_vectorized.cpython-311.pyc
-│   └── mandelbrot_vectorized.cpython-311.pyc
 └── results/
-    ├── {system_name_date}
-    │   ├── analysis.md
-    │   ├── mandelbrot_non_vectorized.png
-    │   └── mandelbrot_vectorized.png
 ```
 
 ## Setup and Installation
@@ -34,16 +29,12 @@ mandelbrot/
     conda activate mandelbrot
     ```
 
-3. **Run the main script to generate the Mandelbrot sets and the analysis report:**
+## Usage
+
+1. **Run the main script to generate the Mandelbrot sets and the analysis report:**
     ```sh
     python main.py
     ```
-
-## Usage
-
-The main script orchestrates the execution of both the non-vector
-
-ized and vectorized scripts. It captures the execution times, generates the Mandelbrot set images, and compiles a Markdown report (`analysis.md`) containing the results and performance comparison.
 
 ## Scripts Overview
 
@@ -55,14 +46,28 @@ This script contains the function `mandelbrot_non_vectorized` which generates th
 
 This script contains the function `mandelbrot_vectorized` which leverages numpy's vectorized operations to perform computations on entire arrays at once. The execution time is measured and the resulting image is saved as `mandelbrot_vectorized.png`.
 
+### generate_analysis.py
+
+This script generates a Markdown report (`analysis.md`) that documents the execution times and provides a detailed comparison between the non-vectorized and vectorized methods. It includes mathematical explanations and visual outputs of the Mandelbrot sets.
+
 ### main.py
 
-The main script orchestrates the execution of both the non-vectorized and vectorized scripts. It captures the execution times, generates the Mandelbrot set images, and compiles a Markdown report (`analysis.md`) containing the results and performance comparison.
+The main script orchestrates the execution of both the non-vectorized and vectorized scripts, captures the execution times, and calls the `generate_analysis.py` script to create the analysis report.
 
 ## Results
 
-The results directory will contain a subdirectory named `{system_name_date}` after running the main script. This subdirectory will include:
+After running the main script, a new directory will be created under `results/` named with the system name and current date (down to the minute). This directory will include:
 
 - `mandelbrot_non_vectorized.png`: Image of the Mandelbrot set generated using the non-vectorized method.
 - `mandelbrot_vectorized.png`: Image of the Mandelbrot set generated using the vectorized method.
 - `analysis.md`: Markdown report detailing the execution times and providing a comparison of the two methods.
+
+### Example Structure
+
+```
+results/
+└── prometheus_20240531_1345/
+    ├── analysis.md
+    ├── mandelbrot_non_vectorized.png
+    └── mandelbrot_vectorized.png
+```
