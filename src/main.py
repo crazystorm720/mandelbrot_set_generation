@@ -1,8 +1,8 @@
 import os
 import platform
 from datetime import datetime
-from mandelbrot_non_vectorized import run_and_save_non_vectorized
-from mandelbrot_vectorized import run_and_save_vectorized
+from src.mandelbrot_non_vectorized import run_and_save_non_vectorized
+from src.mandelbrot_vectorized import run_and_save_vectorized
 import subprocess
 
 # Get system name and current date with minutes
